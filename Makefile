@@ -5,15 +5,15 @@ TARGETS= 	proj1server proj1client
 all: 		$(TARGETS)
 
 src/Server/%.o: src/Server/%.c
-	$(CC) $(CFLAFS) -c -o $@ $^
+	$(CC) $(CFLAGS) -c -o $@ $^
 
 src/Client/%.o: src/Client/%.c
 	$(CC) $(CFLAGS) -c -o $@ $^
 
-proj1client: src/Client/client.o src/Client/socket.o
+proj1client: src/Client/client.o src/Client/client_socket.o
 	$(CC) $(CFLAGS) -o $@ $^
 
-proj1server: src/Server/server.o
+proj1server: src/Server/server.o src/Server/server_socket.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 clean:

@@ -7,6 +7,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <stdio.h>
 #include <errno.h>
 
 void *get_in_addr(struct sockaddr *sa);

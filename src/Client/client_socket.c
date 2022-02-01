@@ -1,15 +1,4 @@
-#include "socket.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <string.h>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <netdb.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#include <errno.h>
+#include "client_socket.h"
 
 /** 
  * Get sockaddr for IPv4 or IPv6
@@ -30,13 +19,12 @@ void *get_in_addr(struct sockaddr *sa) {
  *
  * @param 	host 		host string to connect to
  * @param 	port 		port string to connect to
- * @return  fd 			sockect file descriptor	
+ * @return  client_file 			sockect file pointer	
  **/
-
 int socket_dial(const char* host, const char* port) {
 	/* set structures */
 	struct addrinfo hints, *res, *p;
-	memset(&hints, 0, sizeof(hints));
+	memset(&hints, 0, sizeof hints);
 	hints.ai_family = AF_UNSPEC; 	// either Iv4 or Iv6
 	hints.ai_socktype = SOCK_STREAM; // TCP
 	int status;
@@ -76,6 +64,6 @@ int socket_dial(const char* host, const char* port) {
 
 	/* free struct */
 	freeaddrinfo(res);
-	
-	return fd;
 
+	return fd;
+}
