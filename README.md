@@ -1,5 +1,5 @@
-# Networks_Project1
-Computer Networks Project 1 - a simple file copy server and client with socket programming
+# simple_file_transfer
+A simple file copy server and client with socket programming
 
 ## Performance Comparison
 ### Time (in seconds)
